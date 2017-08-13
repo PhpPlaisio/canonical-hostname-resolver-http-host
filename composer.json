@@ -1,11 +1,11 @@
 {
   "name": "setbased/abc-canonical-hostname-resolver-http-host",
-  "description": "ABC Framework: Canonical Hostname Resolver using $_SERVER['HTTP_HOST']",
+  "description": "ABC-Framework: Canonical Hostname Resolver using $_SERVER['HTTP_HOST']",
   "keywords": [
-    "framework",
-    "canonical",
-    "hostname",
-    "resolver",
+    "ABC-Framework",
+    "Canonical",
+    "Hostname",
+    "Resolver",
     "HTTP_HOST"
   ],
   "require": {
