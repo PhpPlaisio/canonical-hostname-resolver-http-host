@@ -2,9 +2,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 namespace SetBased\Abc\CanonicalHostnameResolver;
 
-use SetBased\Exception\RuntimeException;
+use SetBased\Abc\Error\BadRequestException;
 
-//----------------------------------------------------------------------------------------------------------------------
 /**
  * A CanonicalHostnameResolver using $_SERVER['HTTP_HOST'].
  */
@@ -43,12 +42,12 @@ class HttpHostCanonicalHostnameResolver implements CanonicalHostnameResolver
    */
   private function setCanonicalHostname()
   {
-    if (!isset($_SERVER['HTTP_HOST']))
-    {
-      throw new RuntimeException("Unable to derive canonical hostname");
-    }
+    $hostname = $_SERVER['HTTP_HOST'] ?? '';
 
-    $hostname = $_SERVER['HTTP_HOST'];
+    if ($hostname=='')
+    {
+      throw new BadRequestException("Unable to derive canonical hostname");
+    }
 
     // Remove port number, if any.
     $p = strpos($hostname, ':');

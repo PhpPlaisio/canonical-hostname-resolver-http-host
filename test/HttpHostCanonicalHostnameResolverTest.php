@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 use SetBased\Abc\CanonicalHostnameResolver\HttpHostCanonicalHostnameResolver;
 use SetBased\Exception\RuntimeException;
 
-//----------------------------------------------------------------------------------------------------------------------
 /**
  * Test cases for class HttpHostCanonicalHostnameResolver.
  */
@@ -64,6 +63,45 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
+   * Test method getCanonicalHostname with domain '0'.
+   */
+  public function testGetDomain1d()
+  {
+    $resolver = new HttpHostCanonicalHostnameResolver();
+
+    $_SERVER['HTTP_HOST'] = '0';
+
+    $this->assertSame('0', $resolver->getCanonicalHostname());
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
+   * Test method getCanonicalHostname with domain '0.0'.
+   */
+  public function testGetDomain1e()
+  {
+    $resolver = new HttpHostCanonicalHostnameResolver();
+
+    $_SERVER['HTTP_HOST'] = '0.0';
+
+    $this->assertSame('0.0', $resolver->getCanonicalHostname());
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
+   * Test method getCanonicalHostname with domain '0.0.0'.
+   */
+  public function testGetDomain1f()
+  {
+    $resolver = new HttpHostCanonicalHostnameResolver();
+
+    $_SERVER['HTTP_HOST'] = '0.0.0';
+
+    $this->assertSame('0.0.0', $resolver->getCanonicalHostname());
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
    * Test method getCanonicalHostname with port number
    */
   public function testGetDomain2()
@@ -94,11 +132,26 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
    *
    * @expectedException RuntimeException
    */
-  public function testGetDomain4()
+  public function testGetDomain4a()
   {
     $resolver = new HttpHostCanonicalHostnameResolver();
 
     $_SERVER['HTTP_HOST'] = null;
+
+    $resolver->getCanonicalHostname();
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
+   * Test method getCanonicalHostname without host name.
+   *
+   * @expectedException RuntimeException
+   */
+  public function testGetDomain4b()
+  {
+    $resolver = new HttpHostCanonicalHostnameResolver();
+
+    $_SERVER['HTTP_HOST'] = '';
 
     $resolver->getCanonicalHostname();
   }
