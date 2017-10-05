@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fbeb52ca9a2bee2c083dc6a98eef1c62",
+    "content-hash": "c34df74e1857365a2ca4fdd919e76cfa",
     "packages": [
         {
             "name": "setbased/abc-canonical-hostname-resolver",
-            "version": "0.9.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SetBased/php-abc-canonical-hostname-resolver.git",
-                "reference": "86a2faf2f25676eb3ca4167a79ec276d9a44fe97"
+                "reference": "f91120552758482b353967f28ceff59caf66e107"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SetBased/php-abc-canonical-hostname-resolver/zipball/86a2faf2f25676eb3ca4167a79ec276d9a44fe97",
-                "reference": "86a2faf2f25676eb3ca4167a79ec276d9a44fe97",
+                "url": "https://api.github.com/repos/SetBased/php-abc-canonical-hostname-resolver/zipball/f91120552758482b353967f28ceff59caf66e107",
+                "reference": "f91120552758482b353967f28ceff59caf66e107",
                 "shasum": ""
             },
             "require": {
@@ -33,14 +33,14 @@
             "license": [
                 "MIT"
             ],
-            "description": "ABC Framework: Canonical Hostname Resolver",
+            "description": "ABC-Framework: Canonical Hostname Resolver",
             "keywords": [
+                "ABC-Framework",
                 "canonical",
-                "framework",
                 "hostname",
                 "resolver"
             ],
-            "time": "2017-05-25T09:16:32+00:00"
+            "time": "2017-08-13T13:47:33+00:00"
         },
         {
             "name": "setbased/abc-http-error",
