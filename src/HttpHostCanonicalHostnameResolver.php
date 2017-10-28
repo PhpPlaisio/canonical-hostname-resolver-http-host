@@ -46,7 +46,7 @@ class HttpHostCanonicalHostnameResolver implements CanonicalHostnameResolver
 
     if ($hostname=='')
     {
-      throw new BadRequestException("Unable to derive canonical hostname");
+      throw new BadRequestException('Unable to derive canonical hostname');
     }
 
     // Remove port number, if any.
