@@ -2,7 +2,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 namespace SetBased\Abc\CanonicalHostnameResolver;
 
-use SetBased\Abc\Error\BadRequestException;
+use SetBased\Abc\Exception\BadRequestException;
 
 /**
  * A CanonicalHostnameResolver using $_SERVER['HTTP_HOST'].

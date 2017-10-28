@@ -4,7 +4,6 @@ namespace SetBased\Abc\CanonicalHostnameResolver\Test;
 
 use PHPUnit\Framework\TestCase;
 use SetBased\Abc\CanonicalHostnameResolver\HttpHostCanonicalHostnameResolver;
-use SetBased\Exception\RuntimeException;
 
 /**
  * Test cases for class HttpHostCanonicalHostnameResolver.
@@ -115,9 +114,9 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Test method getCanonicalHostname without host name.
+   * Test method getCanonicalHostname without hostname.
    *
-   * @expectedException RuntimeException
+   * @expectedException SetBased\Abc\Exception\BadRequestException
    */
   public function testGetDomain3()
   {
@@ -128,9 +127,9 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Test method getCanonicalHostname without host name.
+   * Test method getCanonicalHostname without hostname.
    *
-   * @expectedException RuntimeException
+   * @expectedException SetBased\Abc\Exception\BadRequestException
    */
   public function testGetDomain4a()
   {
@@ -143,9 +142,9 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Test method getCanonicalHostname without host name.
+   * Test method getCanonicalHostname without hostname.
    *
-   * @expectedException RuntimeException
+   * @expectedException SetBased\Abc\Exception\BadRequestException
    */
   public function testGetDomain4b()
   {
