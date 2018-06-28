@@ -1,5 +1,5 @@
 <?php
-//----------------------------------------------------------------------------------------------------------------------
+
 namespace SetBased\Abc\CanonicalHostnameResolver;
 
 use SetBased\Abc\Exception\BadRequestException;
@@ -26,7 +26,7 @@ class HttpHostCanonicalHostnameResolver implements CanonicalHostnameResolver
    * @api
    * @since 1.0.0
    */
-  public function getCanonicalHostname()
+  public function getCanonicalHostname(): string
   {
     if ($this->canonicalHostname===null)
     {
@@ -40,7 +40,7 @@ class HttpHostCanonicalHostnameResolver implements CanonicalHostnameResolver
   /**
    * Derives the canonical host name.
    */
-  private function setCanonicalHostname()
+  private function setCanonicalHostname(): void
   {
     $hostname = $_SERVER['HTTP_HOST'] ?? '';
 
