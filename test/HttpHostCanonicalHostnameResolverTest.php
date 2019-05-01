@@ -5,6 +5,7 @@ namespace SetBased\Abc\CanonicalHostnameResolver\Test;
 
 use PHPUnit\Framework\TestCase;
 use SetBased\Abc\CanonicalHostnameResolver\HttpHostCanonicalHostnameResolver;
+use SetBased\Abc\Exception\BadRequestException;
 
 /**
  * Test cases for class HttpHostCanonicalHostnameResolver.
@@ -15,7 +16,7 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
   /**
    * Unsets $_SERVER['HTTP_HOST']. Note we set $_SERVER['HTTP_HOST'] after creating the resolver objects.
    */
-  public function setUp()
+  public function setUp(): void
   {
     parent::setUp();
 
@@ -26,7 +27,7 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
   /**
    * Test method getCanonicalHostname without port number.
    */
-  public function testGetDomain1a()
+  public function testGetDomain1a(): void
   {
     $resolver = new HttpHostCanonicalHostnameResolver();
 
@@ -39,7 +40,7 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
   /**
    * Test method getCanonicalHostname without port number anf host name in upper case.
    */
-  public function testGetDomain1b()
+  public function testGetDomain1b(): void
   {
     $resolver = new HttpHostCanonicalHostnameResolver();
 
@@ -52,7 +53,7 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
   /**
    * Test method getCanonicalHostname with trailing and leading (does this happen?).
    */
-  public function testGetDomain1c()
+  public function testGetDomain1c(): void
   {
     $resolver = new HttpHostCanonicalHostnameResolver();
 
@@ -65,7 +66,7 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
   /**
    * Test method getCanonicalHostname with domain '0'.
    */
-  public function testGetDomain1d()
+  public function testGetDomain1d(): void
   {
     $resolver = new HttpHostCanonicalHostnameResolver();
 
@@ -78,7 +79,7 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
   /**
    * Test method getCanonicalHostname with domain '0.0'.
    */
-  public function testGetDomain1e()
+  public function testGetDomain1e(): void
   {
     $resolver = new HttpHostCanonicalHostnameResolver();
 
@@ -91,7 +92,7 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
   /**
    * Test method getCanonicalHostname with domain '0.0.0'.
    */
-  public function testGetDomain1f()
+  public function testGetDomain1f(): void
   {
     $resolver = new HttpHostCanonicalHostnameResolver();
 
@@ -104,7 +105,7 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
   /**
    * Test method getCanonicalHostname with port number
    */
-  public function testGetDomain2()
+  public function testGetDomain2(): void
   {
     $resolver = new HttpHostCanonicalHostnameResolver();
 
@@ -116,43 +117,40 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
   //--------------------------------------------------------------------------------------------------------------------
   /**
    * Test method getCanonicalHostname without hostname.
-   *
-   * @expectedException SetBased\Abc\Exception\BadRequestException
    */
-  public function testGetDomain3()
+  public function testGetDomain3(): void
   {
     $resolver = new HttpHostCanonicalHostnameResolver();
 
+    $this->expectException(BadRequestException::class);
     $resolver->getCanonicalHostname();
   }
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
    * Test method getCanonicalHostname without hostname.
-   *
-   * @expectedException SetBased\Abc\Exception\BadRequestException
    */
-  public function testGetDomain4a()
+  public function testGetDomain4a(): void
   {
     $resolver = new HttpHostCanonicalHostnameResolver();
 
     $_SERVER['HTTP_HOST'] = null;
 
+    $this->expectException(BadRequestException::class);
     $resolver->getCanonicalHostname();
   }
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
    * Test method getCanonicalHostname without hostname.
-   *
-   * @expectedException SetBased\Abc\Exception\BadRequestException
    */
-  public function testGetDomain4b()
+  public function testGetDomain4b(): void
   {
     $resolver = new HttpHostCanonicalHostnameResolver();
 
     $_SERVER['HTTP_HOST'] = '';
 
+    $this->expectException(BadRequestException::class);
     $resolver->getCanonicalHostname();
   }
 

@@ -1,4 +1,5 @@
 /.idea/
+/.phpunit.result.cache
 /bin/
 /test/report/
 /test/coverage.xml
