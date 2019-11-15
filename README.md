@@ -1,4 +1,4 @@
-# SetBased ABC-Framework: Canonical Hostname Resolver using $_SERVER['HTTP_HOST']
+# PhpPlaisio: Canonical Hostname Resolver using HTTP_HOST
 
 <table>
 <thead>
@@ -13,20 +13,20 @@
 <tbody>
 <tr>
 <td>
-<a href="https://gitter.im/setbased-abc-framework/abc"><img src="https://badges.gitter.im/setbased-abc-framework/abc.svg" alt="Gitter"/></a>
+<a href="https://gitter.im/PhpPlaisio/PhpPlaisio"><img src="https://badges.gitter.im/PhpPlaisio/PhpPlaisio.svg" alt="Gitter"/></a>
 </td>
 <td>
-<a href="https://packagist.org/packages/setbased/abc-canonical-hostname-resolver-http-host"><img src="https://poser.pugx.org/setbased/abc-canonical-hostname-resolver-http-host/license" alt="License"/></a>
+<a href="https://packagist.org/packages/plaisio/canonical-hostname-resolver-http-host"><img src="https://poser.pugx.org/plaisio/canonical-hostname-resolver-http-host/license" alt="License"/></a>
 </td>
 <td>
-<a href="https://packagist.org/packages/setbased/abc-canonical-hostname-resolver-http-host"><img src="https://poser.pugx.org/setbased/abc-canonical-hostname-resolver-http-host/v/stable" alt="Latest Stable Version"/></a>
+<a href="https://packagist.org/packages/plaisio/canonical-hostname-resolver-http-host"><img src="https://poser.pugx.org/plaisio/canonical-hostname-resolver-http-host/v/stable" alt="Latest Stable Version"/></a>
 </td>
 <td>
-<a href="https://travis-ci.org/setbased-abc-framework/canonical-hostname-resolver-http-host"><img src="https://travis-ci.org/setbased-abc-framework/canonical-hostname-resolver-http-host.svg?branch=master" alt="Build Status"/></a><br/>
-<a href="https://scrutinizer-ci.com/g/setbased-abc-framework/canonical-hostname-resolver-http-host/?branch=master"><img src="https://scrutinizer-ci.com/g/setbased-abc-framework/canonical-hostname-resolver-http-host/badges/coverage.png?b=master" alt="Code Coverage"/></a>
+<a href="https:///travis-ci.org/PhpPlaisio/canonical-hostname-resolver-http-host"><img src="https:///travis-ci.org/PhpPlaisio/canonical-hostname-resolver-http-host.svg?branch=master" alt="Build Status"/></a><br/>
+<a href="https:///scrutinizer-ci.com/g/PhpPlaisio/canonical-hostname-resolver-http-host/?branch=master"><img src="https:///scrutinizer-ci.com/g/PhpPlaisio/canonical-hostname-resolver-http-host/badges/coverage.png?b=master" alt="Code Coverage"/></a>
 </td>
 <td>
-<a href="https://scrutinizer-ci.com/g/setbased-abc-framework/canonical-hostname-resolver-http-host/?branch=master"><img src="https://scrutinizer-ci.com/g/setbased-abc-framework/canonical-hostname-resolver-http-host/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"/></a>
+<a href="https:///scrutinizer-ci.com/g/PhpPlaisio/canonical-hostname-resolver-http-host/?branch=master"><img src="https:///scrutinizer-ci.com/g/PhpPlaisio/canonical-hostname-resolver-http-host/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"/></a>
 </td>
 </tr>
 </tbody>

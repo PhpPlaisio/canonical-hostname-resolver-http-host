@@ -1,18 +1,15 @@
 {
-  "name": "setbased/abc-canonical-hostname-resolver-http-host",
-  "description": "SetBased ABC-Framework: Canonical Hostname Resolver using $_SERVER['HTTP_HOST']",
+  "name": "plaisio/canonical-hostname-resolver-http-host",
+  "description": "PhpPlaisio: Canonical Hostname Resolver using HTTP_HOST",
   "keywords": [
-    "SetBased ABC-Framework",
-    "Canonical",
-    "Hostname",
-    "Resolver",
-    "HTTP_HOST"
+    "PhpPlaisio",
+    "Canonical Hostname Resolver"
   ],
   "license": "MIT",
   "require": {
     "php": ">=7.1.0",
-    "setbased/abc-canonical-hostname-resolver": "^2.0.0",
-    "setbased/abc-exception": "^2.0.0"
+    "plaisio/canonical-hostname-resolver": "^3.0.0",
+    "plaisio/exception": "^3.0.0"
   },
   "require-dev": {
     "ext-mbstring": "*",
@@ -21,12 +18,12 @@
   },
   "autoload": {
     "psr-4": {
-      "SetBased\\Abc\\CanonicalHostnameResolver\\": "src/"
+      "Plaisio\\CanonicalHostnameResolver\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "SetBased\\Abc\\CanonicalHostnameResolver\\Test\\": "test/"
+      "Plaisio\\CanonicalHostnameResolver\\Test\\": "test/"
     }
   },
   "config": {

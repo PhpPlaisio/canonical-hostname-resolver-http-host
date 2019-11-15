@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace SetBased\Abc\CanonicalHostnameResolver\Test;
+namespace Plaisio\CanonicalHostnameResolver\Test;
 
 use PHPUnit\Framework\TestCase;
-use SetBased\Abc\CanonicalHostnameResolver\HttpHostCanonicalHostnameResolver;
-use SetBased\Abc\Exception\BadRequestException;
+use Plaisio\CanonicalHostnameResolver\HttpHostCanonicalHostnameResolver;
+use Plaisio\Exception\BadRequestException;
 
 /**
  * Test cases for class HttpHostCanonicalHostnameResolver.

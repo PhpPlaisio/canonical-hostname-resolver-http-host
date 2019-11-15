@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace SetBased\Abc\CanonicalHostnameResolver;
+namespace Plaisio\CanonicalHostnameResolver;
 
-use SetBased\Abc\Exception\BadRequestException;
+use Plaisio\Exception\BadRequestException;
 
 /**
  * A CanonicalHostnameResolver using $_SERVER['HTTP_HOST'].
