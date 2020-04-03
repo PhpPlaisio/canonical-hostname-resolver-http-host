@@ -8,8 +8,8 @@
   "license": "MIT",
   "require": {
     "php": ">=7.3",
-    "plaisio/canonical-hostname-resolver": "^1.0",
-    "plaisio/exception": "^1.0"
+    "plaisio/canonical-hostname-resolver": "^1.1",
+    "plaisio/exception": "^1.1"
   },
   "require-dev": {
     "ext-mbstring": "*",
