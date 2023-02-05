@@ -16,7 +16,7 @@ class HttpHostCanonicalHostnameResolver implements CanonicalHostnameResolver
    *
    * @var string|null
    */
-  private $canonicalHostname;
+  private ?string $canonicalHostname = null;
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
@@ -45,14 +45,19 @@ class HttpHostCanonicalHostnameResolver implements CanonicalHostnameResolver
   {
     $hostname = $_SERVER['HTTP_HOST'] ?? '';
 
-    if ($hostname=='')
+    // XXX hosts name toevoegen aan request
+    // $this->nub->request->getHostname();
+    if ($hostname==='')
     {
       throw new BadRequestException('Unable to derive canonical hostname');
     }
 
     // Remove port number, if any.
     $p = strpos($hostname, ':');
-    if ($p!==false) $hostname = substr($hostname, 0, $p);
+    if ($p!==false)
+    {
+      $hostname = substr($hostname, 0, $p);
+    }
 
     $this->canonicalHostname = strtolower(trim($hostname));
   }
