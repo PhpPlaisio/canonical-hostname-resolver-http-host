@@ -22,8 +22,8 @@
 <a href="https://packagist.org/packages/plaisio/canonical-hostname-resolver-http-host"><img src="https://poser.pugx.org/plaisio/canonical-hostname-resolver-http-host/v/stable" alt="Latest Stable Version"/></a>
 </td>
 <td>
-<a href="https:///travis-ci.org/PhpPlaisio/canonical-hostname-resolver-http-host"><img src="https:///travis-ci.org/PhpPlaisio/canonical-hostname-resolver-http-host.svg?branch=master" alt="Build Status"/></a><br/>
-<a href="https:///scrutinizer-ci.com/g/PhpPlaisio/canonical-hostname-resolver-http-host/?branch=master"><img src="https:///scrutinizer-ci.com/g/PhpPlaisio/canonical-hostname-resolver-http-host/badges/coverage.png?b=master" alt="Code Coverage"/></a>
+<a href="https://github.com/PhpPlaisio/canonical-hostname-resolver-http-host/actions/workflows/unit.yml"><img src="https://github.com/PhpPlaisio/canonical-hostname-resolver-http-host/actions/workflows/unit.yml/badge.svg" alt="Build Status"/></a><br/>
+<a href="https://codecov.io/gh/PhpPlaisio/canonical-hostname-resolver-http-host"><img src="https://codecov.io/gh/PhpPlaisio/canonical-hostname-resolver-http-host/branch/master/graph/badge.svg" alt="Code Coverage"/></a>
 </td>
 <td>
 <a href="https:///scrutinizer-ci.com/g/PhpPlaisio/canonical-hostname-resolver-http-host/?branch=master"><img src="https:///scrutinizer-ci.com/g/PhpPlaisio/canonical-hostname-resolver-http-host/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"/></a>
