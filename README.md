@@ -26,7 +26,7 @@
 <a href="https://codecov.io/gh/PhpPlaisio/canonical-hostname-resolver-http-host"><img src="https://codecov.io/gh/PhpPlaisio/canonical-hostname-resolver-http-host/branch/master/graph/badge.svg" alt="Code Coverage"/></a>
 </td>
 <td>
-<a href="https:///scrutinizer-ci.com/g/PhpPlaisio/canonical-hostname-resolver-http-host/?branch=master"><img src="https:///scrutinizer-ci.com/g/PhpPlaisio/canonical-hostname-resolver-http-host/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"/></a>
+<a href="https://scrutinizer-ci.com/g/PhpPlaisio/canonical-hostname-resolver-http-host/?branch=master"><img src="https://scrutinizer-ci.com/g/PhpPlaisio/canonical-hostname-resolver-http-host/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"/></a>
 </td>
 </tr>
 </tbody>
