@@ -4,52 +4,47 @@ declare(strict_types=1);
 namespace Plaisio\CanonicalHostnameResolver;
 
 use Plaisio\Exception\BadRequestException;
+use Plaisio\Kernel\Nub;
+use SetBased\Exception\LogicException;
 
 /**
- * A CanonicalHostnameResolver using $_SERVER['HTTP_HOST'].
+ * A CanonicalHostnameResolver using HTTP HOST header.
  */
+#[\AllowDynamicProperties]
 class HttpHostCanonicalHostnameResolver implements CanonicalHostnameResolver
 {
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * The canonical host name.
+   * Returns the value of a property.
    *
-   * @var string|null
+   * Do not call this method directly as it is a PHP magic method that
+   * will be implicitly called when executing `$value = $object->property;`.
+   *
+   * @param string $property The name of the property.
+   *
+   * @throws LogicException If the property is not defined.
    */
-  private ?string $canonicalHostname = null;
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * Returns the canonical hostname (a.k.a. preferred fully qualified domain name).
-   *
-   * @return string
-   *
-   * @api
-   * @since 1.0.0
-   */
-  public function getCanonicalHostname(): string
+  public function __get(string $property): mixed
   {
-    if ($this->canonicalHostname===null)
+    $getter = 'get'.$property;
+    if (method_exists($this, $getter))
     {
-      $this->setCanonicalHostname();
+      return $this->$property = $this->$getter();
     }
 
-    return $this->canonicalHostname;
+    throw new LogicException('Unknown property %s::%s', __CLASS__, $property);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Derives the canonical host name.
+   * Returns the canonical hostname (a.k.a. preferred fully qualified domain name).
    */
-  private function setCanonicalHostname(): void
+  private function getCanonicalHostname(): string
   {
-    $hostname = $_SERVER['HTTP_HOST'] ?? '';
-
-    // XXX hosts name toevoegen aan request
-    // $this->nub->request->getHostname();
+    $hostname = Nub::$nub->request->hostname;
     if ($hostname==='')
     {
-      throw new BadRequestException('Unable to derive canonical hostname');
+      throw new BadRequestException('Unable to derive canonical hostname.');
     }
 
     // Remove port number, if any.
@@ -60,6 +55,8 @@ class HttpHostCanonicalHostnameResolver implements CanonicalHostnameResolver
     }
 
     $this->canonicalHostname = strtolower(trim($hostname));
+
+    return $hostname;
   }
 
   //--------------------------------------------------------------------------------------------------------------------

@@ -5,7 +5,9 @@ namespace Plaisio\CanonicalHostnameResolver\Test;
 
 use PHPUnit\Framework\TestCase;
 use Plaisio\CanonicalHostnameResolver\HttpHostCanonicalHostnameResolver;
+use Plaisio\CanonicalHostnameResolver\Test\Plaisio\TestKernel;
 use Plaisio\Exception\BadRequestException;
+use Plaisio\PlaisioKernel;
 
 /**
  * Test cases for class HttpHostCanonicalHostnameResolver.
@@ -14,13 +16,22 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
 {
   //--------------------------------------------------------------------------------------------------------------------
   /**
+   * Our concrete instance of Abc.
+   *
+   * @var PlaisioKernel
+   */
+  private PlaisioKernel $kernel;
+
+  //--------------------------------------------------------------------------------------------------------------------
+
+  /**
    * Unsets $_SERVER['HTTP_HOST']. Note we set $_SERVER['HTTP_HOST'] after creating the resolver objects.
    */
   public function setUp(): void
   {
-    parent::setUp();
-
     unset($_SERVER['HTTP_HOST']);
+
+    $this->kernel = new TestKernel();
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -29,16 +40,16 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
    */
   public function testGetDomain1a(): void
   {
-    $resolver = new HttpHostCanonicalHostnameResolver();
-
     $_SERVER['HTTP_HOST'] = 'www.example.com';
 
-    $this->assertSame('www.example.com', $resolver->getCanonicalHostname());
+    $resolver = new HttpHostCanonicalHostnameResolver();
+
+    $this->assertSame('www.example.com', $resolver->canonicalHostname);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Test method getCanonicalHostname without port number anf host name in upper case.
+   * Test method getCanonicalHostname without port number and host name in upper case.
    */
   public function testGetDomain1b(): void
   {
@@ -46,7 +57,7 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
 
     $_SERVER['HTTP_HOST'] = 'www.EXAMPLE.COM';
 
-    $this->assertSame('www.example.com', $resolver->getCanonicalHostname());
+    $this->assertSame('www.example.com', $resolver->canonicalHostname);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -59,7 +70,7 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
 
     $_SERVER['HTTP_HOST'] = " www.example.com\t\n\r";
 
-    $this->assertSame('www.example.com', $resolver->getCanonicalHostname());
+    $this->assertSame('www.example.com', $resolver->canonicalHostname);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -72,7 +83,7 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
 
     $_SERVER['HTTP_HOST'] = '0';
 
-    $this->assertSame('0', $resolver->getCanonicalHostname());
+    $this->assertSame('0', $resolver->canonicalHostname);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -81,11 +92,11 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
    */
   public function testGetDomain1e(): void
   {
-    $resolver = new HttpHostCanonicalHostnameResolver();
-
     $_SERVER['HTTP_HOST'] = '0.0';
 
-    $this->assertSame('0.0', $resolver->getCanonicalHostname());
+    $resolver = new HttpHostCanonicalHostnameResolver();
+
+    $this->assertSame('0.0', $resolver->canonicalHostname);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -94,11 +105,11 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
    */
   public function testGetDomain1f(): void
   {
-    $resolver = new HttpHostCanonicalHostnameResolver();
-
     $_SERVER['HTTP_HOST'] = '0.0.0';
 
-    $this->assertSame('0.0.0', $resolver->getCanonicalHostname());
+    $resolver = new HttpHostCanonicalHostnameResolver();
+
+    $this->assertSame('0.0.0', $resolver->canonicalHostname);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -107,51 +118,51 @@ class HttpHostCanonicalHostnameResolverTest extends TestCase
    */
   public function testGetDomain2(): void
   {
-    $resolver = new HttpHostCanonicalHostnameResolver();
-
     $_SERVER['HTTP_HOST'] = 'www.example.com:8080';
 
-    $this->assertSame('www.example.com', $resolver->getCanonicalHostname());
+    $resolver = new HttpHostCanonicalHostnameResolver();
+
+    $this->assertSame('www.example.com', $resolver->canonicalHostname);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Test method getCanonicalHostname without hostname.
+   * Test method getCanonicalHostname without a hostname.
    */
   public function testGetDomain3(): void
   {
     $resolver = new HttpHostCanonicalHostnameResolver();
 
     $this->expectException(BadRequestException::class);
-    $resolver->getCanonicalHostname();
+    $resolver->canonicalHostname;
   }
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Test method getCanonicalHostname without hostname.
+   * Test method getCanonicalHostname without a hostname.
    */
   public function testGetDomain4a(): void
   {
-    $resolver = new HttpHostCanonicalHostnameResolver();
-
     $_SERVER['HTTP_HOST'] = null;
 
+    $resolver = new HttpHostCanonicalHostnameResolver();
+
     $this->expectException(BadRequestException::class);
-    $resolver->getCanonicalHostname();
+    $resolver->canonicalHostname;
   }
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Test method getCanonicalHostname without hostname.
+   * Test method getCanonicalHostname without a hostname.
    */
   public function testGetDomain4b(): void
   {
-    $resolver = new HttpHostCanonicalHostnameResolver();
-
     $_SERVER['HTTP_HOST'] = '';
 
+    $resolver = new HttpHostCanonicalHostnameResolver();
+
     $this->expectException(BadRequestException::class);
-    $resolver->getCanonicalHostname();
+    $resolver->canonicalHostname;
   }
 
   //--------------------------------------------------------------------------------------------------------------------

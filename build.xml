@@ -29,7 +29,6 @@
             <arg value="--direct"/>
         </exec>
     </target>
-
     <target name="kernel">
         <exec executable="bin/plaisio" checkreturn="true" passthru="true">
             <arg value="--ansi"/>
@@ -42,5 +41,6 @@
         <exec executable="bin/phpunit" passthru="true" checkreturn="true"/>
     </target>
 
-    <target name="build"/>
+    <target name="build">
+    </target>
 </project>
